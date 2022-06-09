@@ -2,7 +2,7 @@ const TextDisplay = (props) =>{
     const text= props[props.field];
  
     return(
-        <div>{text == ""? props.field : text }</div>
+        <div>{text === ""? props.field : text }</div>
     )
     
 }
