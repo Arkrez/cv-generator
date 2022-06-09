@@ -8,10 +8,10 @@ const ExperienceCard = (props) =>{
                
                 return(
                     
-                    <div>
+                    <div className="experienceD">
                         <input type="text" onChange={(e)=>props.ChangeField(`header`, "start", "end",`desc`,  e)} placeholder="Enter Experience Header"/>
-                        <input type="date" onChange={(e)=>props.ChangeField(`start`,`header`, "end",`desc`,  e)}/>
-                        <input type="date" onChange={(e)=>props.ChangeField(`end`, `header`, "start" ,  `desc`, e)}/>
+                        <input type="text" onChange={(e)=>props.ChangeField(`start`,`header`, "end",`desc`,  e)} placeholder="Start Date"/>
+                        <input type="text" onChange={(e)=>props.ChangeField(`end`, `header`, "start" ,  `desc`, e)} placeholder="End Date"/>
                         <textarea onChange={(e)=>props.ChangeField(`desc`, `header`, "start", "end", e)} placeholder="Enter Experience"/>
                     </div>
                     

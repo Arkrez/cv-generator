@@ -14,6 +14,7 @@ const ExperienceDisplay = (props) =>{
         <div className="experienceD">
             {props.arr.map((experience) => {
                 i++;
+                console.log(experience)
                 return(
                     <div>
                         <div>{experience.header}</div>
