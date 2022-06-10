@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import './App.css';
-import {TextDisplay, ExperienceDisplay} from './components/TextDisplay'
+import {TextDisplay, ExperienceDisplay, AddExperience} from './components/TextDisplay'
 import InfoCard from './components/Info';
 import ExperienceCard from './components/Experience';
+import uniqid from "uniqid"
 
 class App extends Component{
   constructor(){
@@ -18,7 +19,8 @@ class App extends Component{
         header: "",
         start: "",
         end: "",
-        desc: ""
+        desc: "",
+        id: uniqid(),
 
       },
       Education: "",
@@ -33,29 +35,40 @@ class App extends Component{
       [key]: e.target.value
     })
   }
-  UpdateExperienceList = (e) =>{
+  AddInputToState = (e) =>{
     e.preventDefault();
+    
     this.setState({
-      Experiences: this.state.Experiences.concat(this.state.Experience),
-      Experience: {
+      Experience:{
         header: "",
         start: "",
         end: "",
-        desc: ""
-      }
+        desc: "",
+        id:  uniqid(),
+      },
+      Experiences: this.state.Experiences.concat(this.state.Experience)
     })
   }
-  ChangeExperienceField = (key, key2, key3, key4, e) =>{
+  ChangeFieldE = (key, e) =>{
     e.preventDefault();
-    this.setState({
-      Experience: {
-        [key]: e.target.value,
-        [key2]: this.state.Experience[key2],
-        [key3]: this.state.Experience[key3],
-        [key4]: this.state.Experience[key4],
+    let i = 0;
+    console.log("?")
+    this.state.Experiences.map((input)=>{
+      if(e.target.id === input.id){
+      
+        const obj = this.state.Experiences[i];
+        let arr = this.state.Experiences;
+        arr.splice(i, 1, obj)
+        obj[key] = e.target.value;
+        this.setState({
+          Experiences: arr
+        })
       }
+      i++;
     })
   }
+    
+  
   render(){
     return(
       <div className='container'>
@@ -69,8 +82,8 @@ class App extends Component{
           <div>
             <label for="experience">Experience</label>
             
-            <ExperienceCard ChangeField={this.ChangeExperienceField} arr={this.state.Experiences}/>
-            <button onClick={this.UpdateExperienceList}>+</button>
+            <button onClick={this.AddInputToState}>Add an input field</button>
+            <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE}/>
           </div>
           
           
@@ -100,11 +113,11 @@ class App extends Component{
           </div>
           <label for="experienceCardD">Experience</label>
           <div className='experienceCardD'>
-            <ExperienceDisplay arr={this.state.Experiences}/>
+            
           </div>
           <label for="educationCardD">Education</label>
           <div className='educatuionCardD'>
-            <TextDisplay Education={this.state.Education} field="Education" />
+            <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
             <TextDisplay EducationStart={this.state.EducationStart} field="EducationStart" />
             <TextDisplay EducationEnd={this.state.EducationEnd} field="EducationEnd" />
             <TextDisplay EducationDescription={this.state.EducationDescription} field="EducationDescription" />

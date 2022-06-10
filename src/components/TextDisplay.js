@@ -8,25 +8,38 @@ const TextDisplay = (props) =>{
     
 }
 
-const ExperienceDisplay = (props) =>{
-    let i =0;
+const AddExperience = (props) =>{
+    
     return(
-        <div className="experienceD">
-            {props.arr.map((experience) => {
-                i++;
-                console.log(experience)
-                return(
-                    <div>
-                        <div>{experience.header}</div>
-                        <div>{experience.start}</div>
-                        <div>{experience.end}</div>
-                        <div>{experience.desc}</div>
-                    </div>
+        props.Inputs.map((input)=>{
+            return (
+                <div key={input.id}>
+                    <input type="text" placeholder="Experience Header" onChange={(e)=>props.action("header", e)} id={input.id}></input>
+                    <input type="text" placeholder="Start" onChange={(e)=>props.action("start", e)} id={input.id}></input>
+                    <input type="text" placeholder="End" onChange={(e)=>props.action("end", e)} id={input.id}></input>
+                    <textarea placeholder="Desc" onChange={(e)=>props.action("desc", e)} id={input.id}></textarea>
+                </div>
                     
-                )
-            })}
-        </div>
+            )
+        })
+            
     )
 }
+    
+const ExperienceDisplay = (props) =>{
+    return(
+         props.Inputs.map((input)=>{
+            return(
+                <div key={input.id}> 
+                    <div>{input.header}</div>
+                    <div>{input.start}</div>
+                    <div>{input.end}</div>
+                    <div>{input.desc}</div>
+                </div>
+            )
+        })
+            
+     )
+}
 
-export {TextDisplay, ExperienceDisplay};
+export {TextDisplay, ExperienceDisplay, AddExperience};
