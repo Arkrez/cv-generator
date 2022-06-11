@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './App.css';
 import {TextDisplay, ExperienceDisplay, AddExperience} from './components/TextDisplay'
 import InfoCard from './components/Info';
-import ExperienceCard from './components/Experience';
+
 import uniqid from "uniqid"
 
 class App extends Component{
@@ -67,7 +67,22 @@ class App extends Component{
       i++;
     })
   }
+  RemoveExp = (e) =>{
     
+    e.preventDefault();
+    
+    let i = 0;
+    this.state.Experiences.map((input)=>{
+      if(e.target.id === input.id){
+        let arr = this.state.Experiences;
+        arr.splice(i, 1)
+        this.setState({
+          Experiences: arr
+        })
+      }
+      i++;
+    })
+  }
   
   render(){
     return(
@@ -82,8 +97,9 @@ class App extends Component{
           <div>
             <label for="experience">Experience</label>
             
+            
+            <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE} removeExp={this.RemoveExp}/>
             <button onClick={this.AddInputToState}>Add an input field</button>
-            <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE}/>
           </div>
           
           
@@ -112,16 +128,14 @@ class App extends Component{
             </div>
           </div>
           <label for="experienceCardD">Experience</label>
-          <div className='experienceCardD'>
-            
-          </div>
+
+          <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
+
+
           <label for="educationCardD">Education</label>
-          <div className='educatuionCardD'>
-            <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
-            <TextDisplay EducationStart={this.state.EducationStart} field="EducationStart" />
-            <TextDisplay EducationEnd={this.state.EducationEnd} field="EducationEnd" />
-            <TextDisplay EducationDescription={this.state.EducationDescription} field="EducationDescription" />
-          </div>
+          
+          
+        
           
         </div>
         

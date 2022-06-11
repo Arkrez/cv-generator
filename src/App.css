@@ -18,6 +18,7 @@
     left: 1rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     padding-left: 1rem;
+    padding-right: 1rem ;
     top: 1rem;
     display: flex;
     flex-direction: column;
@@ -64,4 +65,24 @@
 .education{
     display: grid;
     grid-template-columns:  2fr 1fr 1fr 4fr;
+}
+.expCardD{
+    width: 90%;
+    display: grid;
+    grid-template-columns: .5fr .1fr .5fr 4fr;
+}
+.expHeader{
+    grid-column: 1/-1;
+    border-bottom: 1px black solid;
+}
+
+.deleteExp{
+    background-color: rgb(139, 139, 139);
+    height: 2rem;
+    margin-bottom: 1rem;
+    border: 0px solid black;
+    border-radius: 2px;
+}
+.deleteExp:hover{
+    background-color: rgb(196, 196, 196);
 }
