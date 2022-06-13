@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import {TextDisplay, ExperienceDisplay, AddExperience} from './TextDisplay'
 import InfoCard from './Info';
-import uniqid from "uniqid"
+import uniqid from "uniqid";
+import jsPDF from 'jspdf';
+import { dblClick } from '@testing-library/user-event/dist/click';
 class Main extends Component{
   constructor(){
     super();
@@ -78,6 +80,11 @@ class Main extends Component{
       i++;
     })
   }
+  ToPdf = () =>{
+    var doc = new jsPDF();
+    doc.text("test", 10,10);
+    doc.save("Tester.pdf")
+  }
   render(){
     return(
       <div className='container'>
@@ -98,6 +105,7 @@ class Main extends Component{
             <AddExperience Inputs={this.state.Educations} action={this.ChangeFieldE} removeExp={this.RemoveExp} name="Educations"/>
             <button onClick={(e)=>this.AddInputToState("Education","Educations",e)}>Add an input field</button>
           </div>
+          <button onClick={this.ToPdf}>Save</button>
         </div>
         <div className='display'>
           <div className='contactCardD'>
