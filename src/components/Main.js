@@ -34,45 +34,45 @@ class Main extends Component{
       [key]: e.target.value
     })
   }
-  AddInputToState = (e) =>{
+  AddInputToState = (name, names,e) =>{
     e.preventDefault();
     this.setState({
-      Experience:{
+      [name]:{
         header: "",
         start: "",
         end: "",
         desc: "",
         id:  uniqid(),
       },
-      Experiences: this.state.Experiences.concat(this.state.Experience)
+      [names]: this.state[names].concat(this.state[name])
     })
   }
-  ChangeFieldE = (key, e) =>{
-    e.preventDefault();
+  ChangeFieldE = (names, key, e) =>{
+    
     let i = 0;
-    this.state.Experiences.map((input)=>{
+    this.state[names].map((input)=>{
       if(e.target.id === input.id){
       
-        const obj = this.state.Experiences[i];
-        let arr = this.state.Experiences;
+        const obj = this.state[names][i];
+        let arr = this.state[names];
         arr.splice(i, 1, obj)
         obj[key] = e.target.value;
         this.setState({
-          Experiences: arr
+          [names]: arr
         })
       }
       i++;
     })
   }
-  RemoveExp = (e) =>{
-    e.preventDefault();
+  RemoveExp = (names, e) =>{
+   
     let i = 0;
-    this.state.Experiences.map((input)=>{
+    this.state[names].map((input)=>{
       if(e.target.id === input.id){
-        let arr = this.state.Experiences;
+        let arr = this.state[names];
         arr.splice(i, 1);
         this.setState({
-          Experiences: arr
+          names: arr
         })
       }
       i++;
@@ -88,17 +88,15 @@ class Main extends Component{
           </div>
           <div>
             <label for="experience">Experience</label>
-            <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE} removeExp={this.RemoveExp}/>
-            <button onClick={this.AddInputToState}>Add an input field</button>
+            <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE} removeExp={this.RemoveExp} name="Experiences"/>
+            <button onClick={(e)=>this.AddInputToState("Experience","Experiences",e)}>Add an input field</button>
           </div>
           <div className='educationContainer'>
             <label for="education">Education</label>
-            <div className='education'>
-              <input type="text" onChange={(e)=>this.ChangeField("Education", e)} placeholder="Name of Institute"/>
-              <input type="date" onChange={(e)=>this.ChangeField("EducationStart", e)}/>
-              <input type="date" onChange={(e)=>this.ChangeField("EducationEnd", e)}/>
-              <textarea onChange={(e)=>this.ChangeField("EducationDescription", e)} placeholder="Enter Education Description"/>
-            </div>
+                
+            <label for="experience">Education</label>
+            <AddExperience Inputs={this.state.Educations} action={this.ChangeFieldE} removeExp={this.RemoveExp} name="Educations"/>
+            <button onClick={(e)=>this.AddInputToState("Education","Educations",e)}>Add an input field</button>
           </div>
         </div>
         <div className='display'>
@@ -117,6 +115,7 @@ class Main extends Component{
           <label for="experienceCardD">Experience</label>
             <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
             <label for="educationCardD">Education</label>
+            <ExperienceDisplay Inputs={this.state.Educations} action={this.ChangeField}/>
           </div>
         </div>
       </div>
