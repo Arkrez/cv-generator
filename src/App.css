@@ -25,8 +25,8 @@
    
 }
 .container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     background-color: rgb(185, 185, 185);
     height: 100vh;
     width: 100vw;
@@ -37,13 +37,14 @@
     padding-right: 1rem;
     display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     background-color: rgb(255, 255, 255);
 }
 .display,
 .inputs{
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-top: 1rem;
+    
 }
 .info{
     
@@ -51,9 +52,9 @@
     grid-template-columns: 1fr 1fr;
 }
 .display{
-    
-    height: 66rem; 
-    width: 51rem;
+    margin-right: 1rem;
+    height: 55rem; 
+    width: 48.5rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
     display: grid;
@@ -70,6 +71,9 @@
     
     display: flex;
     gap: 10px;
+}
+.resumeContent{
+    font-size: small;
 }
 .experienceCardD{
     padding-left: 1rem;

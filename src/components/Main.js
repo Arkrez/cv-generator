@@ -113,7 +113,7 @@ class Main extends Component{
             </div>
           </div>
           <div className='sideBar'></div>
-          <div>
+          <div className='resumeContent'>
           <label for="experienceCardD">Experience</label>
             <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
             <label for="educationCardD">Education</label>
