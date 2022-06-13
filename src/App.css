@@ -1,9 +1,29 @@
 *{
     box-sizing: border-box;
     gap:10px;
+    margin: 0px;
+    padding: 0px;
 }
-
-
+:root{
+    --main-blue: #001f3f;
+}
+.content{
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+}
+.header,
+.footer{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--main-blue);
+    color: white;
+}
+.footer{
+    margin-top:auto; 
+    
+   
+}
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -12,18 +32,18 @@
     width: 100vw;
 }
 .inputs{
-    height: 95%; 
-    width: 95%;
-    position: relative;
-    left: 1rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     padding-left: 1rem;
-    padding-right: 1rem ;
-    top: 1rem;
+    padding-right: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin-bottom: 1rem;
     background-color: rgb(255, 255, 255);
+}
+.display,
+.inputs{
+    margin-left: 2rem;
+    margin-top: 1rem;
 }
 .info{
     
@@ -31,33 +51,56 @@
     grid-template-columns: 1fr 1fr;
 }
 .display{
-    height: 95%; 
-    width: 95%;
-    position: relative;
+    
+    height: 66rem; 
+    width: 51rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    right: 1rem;
-    top: 1rem;
-    min-width: 50vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 7fr;
+    align-items: flex-start;
     gap: 10px;
     background-color: rgb(255, 255, 255);
 }
 .nameD{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size:3rem;
+    
     display: flex;
     gap: 10px;
 }
 .experienceCardD{
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: flex;
     flex-direction: column;
 }
 .contactD{
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: flex;
-    gap: 10px;
+    
 }
-
+.sideBar{
+    background-color: aquamarine;
+    height: 100%;
+    width: 100%;
+    grid-column: 2/3;
+    grid-row: 2/-1;
+}
+.contactCardD{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    color: white;
+    background-color: var(--main-blue);
+    grid-column-end: span 2;
+}
 .experience{
+    
     display: flex;
     flex-direction: column;
 }
@@ -67,7 +110,9 @@
     grid-template-columns:  2fr 1fr 1fr 4fr;
 }
 .expCardD{
-    width: 90%;
+    padding-left: 1rem;
+    
+    width: 100%;
     display: grid;
     grid-template-columns: .5fr .1fr .5fr 4fr;
 }
