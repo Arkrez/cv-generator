@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {TextDisplay, ExperienceDisplay, AddExperience} from './TextDisplay'
 import InfoCard from './Info';
 import uniqid from "uniqid";
-import { Preview, print } from 'react-html2pdf';
+import {  print } from 'react-html2pdf';
 
 class Main extends Component{
   constructor(){
@@ -80,31 +80,28 @@ class Main extends Component{
       i++;
     })
   }
-  ToPdf = (e) =>{
-   
-    
-  }
+
   render(){
     return(
       <div className='container'>
         <div className='inputs'>
           <div>
-            <label for="info">Info</label>
+            <h2>Info</h2>
             <InfoCard ChangeField={this.ChangeField}/>
           </div>
           <div>
-            <label for="experience">Experience</label>
+            <h2>Experience</h2>
             <AddExperience Inputs={this.state.Experiences} action={this.ChangeFieldE} removeExp={this.RemoveExp} name="Experiences"/>
-            <button onClick={(e)=>this.AddInputToState("Experience","Experiences",e)}>Add an input field</button>
+            <button onClick={(e)=>this.AddInputToState("Experience","Experiences",e)} className="addInputFieldBtn">Add Experience</button>
           </div>
           <div className='educationContainer'>
-            <label for="education">Education</label>
+            <h2>Education</h2>
                 
-            <label for="experience">Education</label>
+            
             <AddExperience Inputs={this.state.Educations} action={this.ChangeFieldE} removeExp={this.RemoveExp} name="Educations"/>
-            <button onClick={(e)=>this.AddInputToState("Education","Educations",e)}>Add an input field</button>
+            <button onClick={(e)=>this.AddInputToState("Education","Educations",e) }className="addInputFieldBtn">Add Education</button>
           </div>
-          <button className='toPdf' onClick={()=>print('resume', 'display')}>Save</button>
+          <button className='toPdf' onClick={()=>print('resume', 'display')}>Generate PDF</button>
         </div>
         <div className='display' id='display'>
           <div className='contactCardD'>
@@ -119,9 +116,9 @@ class Main extends Component{
           </div>
           <div className='sideBar'></div>
           <div className='resumeContent'>
-          <label for="experienceCardD">Experience</label>
+          <h2 className='displayContentHeader'>Experience</h2>
             <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
-            <label for="educationCardD">Education</label>
+            <h2 className='displayContentHeader'>Education</h2>
             <ExperienceDisplay Inputs={this.state.Educations} action={this.ChangeField}/>
           </div>
         </div>

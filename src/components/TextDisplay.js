@@ -15,7 +15,7 @@ const AddExperience = (props) =>{
         props.Inputs.map((input)=>{
             return (
                 <div key={input.id} className="experience">
-                    <input type="text" placeholder="Experience Header" onChange={(e)=>props.action(props.name,"header", e)} id={input.id}></input>
+                    <input type="text" placeholder="Header" onChange={(e)=>props.action(props.name,"header", e)} id={input.id}></input>
                     <input type="text" placeholder="Start" onChange={(e)=>props.action(props.name,"start", e)} id={input.id}></input>
                     <input type="text" placeholder="End" onChange={(e)=>props.action(props.name,"end", e)} id={input.id}></input>
                     <textarea placeholder="Desc" onChange={(e)=>props.action(props.name,"desc", e)} id={input.id}></textarea>
