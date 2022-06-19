@@ -1,5 +1,6 @@
 # CV-Generator
 <p>Made with React(create-react-app) and html2pdf this app makes it quick and easy to create a pdf of a professional resume.</p>
+https://arkrez.github.io/cv-generator/
 <h2>Directions</h2>
 <p>Simply fill out the fields and watch as the resume is populated with the data that you enter. Click Add x to add additional input fields. When you are done, select "Generate PDF" to create a pdf saved to your computer</p>
 <h2>What's next?</h2>
