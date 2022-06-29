@@ -34,9 +34,7 @@ const ExperienceDisplay = (props) =>{
             return(
                 <div key={input.id} className="expCardD"> 
                     <div className="expHeader">{input.header}</div>
-                    <div>{input.start}</div>
-                    <div>-</div>
-                    <div>{input.end}</div>
+                    <div>{input.start} - {input.end}</div>
                     <div>{input.desc}</div>
                 </div>
             )

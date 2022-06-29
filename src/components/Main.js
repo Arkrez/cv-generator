@@ -114,7 +114,9 @@ class Main extends Component{
               <TextDisplay Email={this.state.Email} field="Email" />
             </div>
           </div>
-          <div className='sideBar'></div>
+          {
+          //<div className='sideBar'></div>
+          }
           <div className='resumeContent'>
           <h2 className='displayContentHeader'>Experience</h2>
             <ExperienceDisplay Inputs={this.state.Experiences} action={this.ChangeField}/>
